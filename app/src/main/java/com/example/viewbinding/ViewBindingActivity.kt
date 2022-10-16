@@ -10,7 +10,9 @@ import com.example.viewbinding.databinding.ActivityMainBinding
 
 /* https://developer.android.com/topic/libraries/view-binding */
 
-/* Activity creada desmarcando "Generate a Layout File" para poder usar el mismo layout en ambas */
+/* Activity creada desmarcando "Generate a Layout File" para poder usar el mismo layout en ambas. */
+/* Para usar viewBinding es necesario añadir una configuración en el build.gradle del módulo
+(ver comentario en ese fichero) */
 
 
 class ViewBindingActivity : AppCompatActivity() {
@@ -18,8 +20,7 @@ class ViewBindingActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     /* View Binding crea automáticamente una binding class a partir del layout en xml. El nombre
-    de esta clase se genera automáticamente (activity_main.xml -> ActivityMainBinding).
-     */
+    de esta clase se genera automáticamente (activity_main.xml -> ActivityMainBinding). */
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,32 +36,20 @@ class ViewBindingActivity : AppCompatActivity() {
         setContentView(binding.root) // root será referencia al elemento raiz aunque no tuviese id
 
 
-
         /* Seteo programaticamente el color de fondo a azul
         con el view binding no es necesario asignar un id al layout */
         binding.root.setBackgroundColor(Color.BLUE)
         // aunque binding.layout también funciona, ya que puse ese id para cambiarlo desde MainActivty
 
 
-
         binding.textView.setOnClickListener {
-            Toast.makeText(
-                this,
-                "TextView localizado mediante View Binding",
-                Toast.LENGTH_SHORT
-            ).show()}
-
-
-        binding.button.setOnClickListener {
-            startActivity(
-                Intent(
-                    this,
-                    MainActivity::class.java
-                )
-            )
+            Toast.makeText(this, R.string.got_by_binding, Toast.LENGTH_SHORT).show()
         }
 
 
+        binding.button.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+        }
 
 
     }

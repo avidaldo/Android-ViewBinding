@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ViewBinding</string>
+    <string name="pulsa_aqu">Pulsa aquí</string>
+    <string name="cambio_de_activity">Cambio de Activity</string>
+    <string name="got_by_binding">TextView localizado mediante View Binding</string>
+    <string name="got_by_id">TextView localizado mediante findViewByid</string>
 </resources>

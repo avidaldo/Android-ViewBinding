@@ -22,20 +22,11 @@ class MainActivity : AppCompatActivity() {
         val tv = findViewById<TextView>(R.id.textView)
 
         tv.setOnClickListener {
-            Toast.makeText(
-                this,
-                "TextView localizado mediante findViewByid",
-                Toast.LENGTH_SHORT
-            ).show()
+            Toast.makeText(this, R.string.got_by_id, Toast.LENGTH_SHORT).show()
         }
 
         boton.setOnClickListener {
-            startActivity(
-                Intent(
-                this@MainActivity,
-                ViewBindingActivity::class.java
-            )
-            )
+            startActivity(Intent(this@MainActivity,ViewBindingActivity::class.java))
         }
 
 
